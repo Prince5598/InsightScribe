@@ -93,8 +93,7 @@ api_keys = [
 ## 🚀 **How to Run the Project**  
 
 ### 1️⃣ **Clone the Repository**  
-```sh
-git clone https://github.com/your-repo-name.git
-cd your-repo-name
+```bash
+https://github.com/Prince5598/InsightScribe.git
 ```
 
