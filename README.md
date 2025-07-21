@@ -97,3 +97,11 @@ api_keys = [
 https://github.com/Prince5598/InsightScribe.git
 ```
 
+### 🌐 Run the Frontend (React)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
