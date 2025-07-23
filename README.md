@@ -1,6 +1,6 @@
 # 🚀 **Research Paper Processing Tool**  
 
-This project is a web-based tool that allows users to **upload research papers (PDFs)** and generate various outputs, such as **text summaries, podcasts, and PowerPoint presentations**.  
+This project is a web-based tool that enables users to **upload research papers (in PDF format)** and generate various outputs, including **text summaries, podcasts, and PowerPoint presentations**.  
 
 ---
 
