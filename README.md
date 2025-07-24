@@ -76,7 +76,7 @@ This project is a web-based tool that enables users to **upload research papers 
 ## 🛠**API Configuration**
 - Create API key from Google AI Studio and paste it in below code.
 ```
-genai.configure(api_key="GOOGLE_API_KEY")
+genai.configure(api_key="GEMINI_API_KEY")
 ```
 - Create 5 API keys from Groq and add it in below line.
 ```
