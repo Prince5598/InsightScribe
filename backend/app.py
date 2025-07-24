@@ -21,7 +21,7 @@ from pydub import AudioSegment
 
 app = Flask(__name__)
 CORS(app)
-genai.configure(api_key="gemini_api_key")
+genai.configure(api_key="GEMINI_API_KEY")
 UPLOAD_FOLDER = 'uploads'
 OUTPUT_FOLDER = 'output'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -47,7 +47,7 @@ def call_llm_sec(prompt):
     Calls the Groq LLM to get a response for the given prompt.
     """
     response = client.chat.completions.create(
-        model="mixtral-8x7b-32768",
+        model="llama3-70b-8192",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
         max_completion_tokens=800,
@@ -161,7 +161,7 @@ def call_llm(prompt):
     Calls the Groq LLM and returns structured output.
     """
     response = client.chat.completions.create(
-        model="mixtral-8x7b-32768",
+        model="llama3-70b-8192",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
         max_completion_tokens=800,

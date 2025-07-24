@@ -21,7 +21,8 @@ type AppAction =
   | { type: 'SET_PPT_PATH'; payload: string }
   | { type: 'SET_PODCAST_PATH'; payload: string }
   | { type: 'SET_LOADING'; payload: { type: 'summary' | 'ppt' | 'podcast'; loading: boolean } }
-  | { type: 'CLEAR_DATA' };
+  | { type: 'CLEAR_DATA' }
+  | { type: 'RESET_GENERATED_CONTENT' };
 
 const initialState: AppState = {
   uploadedFile: null,
@@ -40,10 +41,23 @@ const initialState: AppState = {
 const appReducer = (state: AppState, action: AppAction): AppState => {
   switch (action.type) {
     case 'SET_UPLOADED_FILE':
+      // If it's a different file, reset all generated content
+      const shouldReset = state.fileName && state.fileName !== action.payload.fileName;
       return {
         ...state,
         uploadedFile: action.payload.file,
         fileName: action.payload.fileName,
+        // Reset generated content if it's a new file
+        ...(shouldReset && {
+          summary: null,
+          pptPath: null,
+          podcastPath: null,
+          loadingStates: {
+            summary: false,
+            ppt: false,
+            podcast: false,
+          },
+        }),
       };
     case 'SET_UPLOADING':
       return {
@@ -71,6 +85,18 @@ const appReducer = (state: AppState, action: AppAction): AppState => {
         loadingStates: {
           ...state.loadingStates,
           [action.payload.type]: action.payload.loading,
+        },
+      };
+    case 'RESET_GENERATED_CONTENT':
+      return {
+        ...state,
+        summary: null,
+        pptPath: null,
+        podcastPath: null,
+        loadingStates: {
+          summary: false,
+          ppt: false,
+          podcast: false,
         },
       };
     case 'CLEAR_DATA':

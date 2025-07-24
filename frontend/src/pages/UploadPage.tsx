@@ -67,13 +67,20 @@ const UploadPage: React.FC = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
+      // Check if this is a different file than the current one
+      const isDifferentFile = state.fileName && state.fileName !== selectedFile.name;
+      
+      if (isDifferentFile) {
+        toast.success('New file uploaded! Previous generated content has been cleared.');
+      } else {
+        toast.success('File uploaded successfully!');
+      }
+
       dispatch({
         type: 'SET_UPLOADED_FILE',
         payload: { file: selectedFile, fileName: selectedFile.name },
       });
 
-      toast.success('File uploaded successfully!');
-      // Don't navigate automatically - let user choose what to do next
     } catch (error) {
       console.error('Upload failed:', error);
       toast.error('Failed to upload file. Please try again.');
