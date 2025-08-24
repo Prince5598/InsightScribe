@@ -2,7 +2,6 @@
 
 This project is a web-based tool that enables users to **upload research papers (in PDF format)** and generate various outputs, including **text summaries, podcasts, and PowerPoint presentations**.  
 
-
 ---
 
 ## ✨ **Features**  
